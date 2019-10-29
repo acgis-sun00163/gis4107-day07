@@ -21,13 +21,13 @@ def main():
         fc= fc_name.split('_')
 
         if fc[1].upper() == "PNT":
-            return "Point"
+            print "Point"
         elif fc[1].upper() == "LIN":
-            return "Polyline"
+            print "Polyline"
         elif fc[1].upper() == "PLY":
-            return "Polygon"
+            print "Polygon"
         else:
-            return "Unkown"
+            print "Unkown"
 
 
 
