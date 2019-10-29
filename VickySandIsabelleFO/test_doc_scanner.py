@@ -1,57 +1,55 @@
 #-------------------------------------------------------------------------------
-# Name:        module1
-# Purpose:
+# Name:    test_doc_scanner.py
 #
-# Author:      Isabelle
+# Purpose: Test ex1 module.
 #
-# Created:     15-10-2019
-# Copyright:   (c) Isabelle 2019
-# Licence:     <your licence>
+# Author:  David Viljoen
+#
+# Dated:     15/10/2019
 #-------------------------------------------------------------------------------
 
 import doc_scanner
 reload(doc_scanner)
 
+
+
+
 def main():
     """main()"""
-
-##has_x_code test cases
-
     expected = True
-    in_text = 'aaaTx6op3aaa'
+    in_text = 'aaaTx6op3fff'
     actual = doc_scanner.has_x_code(in_text)
     compare_expected_and_actual(in_text, expected, actual)
-
 
     expected = False
-    in_text = 'aaax6op3aaa'
+    in_text = 'aaax6op3fff'
     actual = doc_scanner.has_x_code(in_text)
     compare_expected_and_actual(in_text, expected, actual)
 
-##get_x_code_position
     expected = 4
-    in_text = 'aaaTx6op3aaa'
-    actual = doc_scanner.get_X_code_position(in_text)
+    in_text = 'aaaTx6op3'
+    actual = doc_scanner.get_x_code_position(in_text)
     compare_expected_and_actual(in_text, expected, actual)
 
     expected = -1
-    in_text = 'aaax6op3aaa'
-    actual = doc_scanner.get_X_code_position(in_text)
+    in_text = 'aaax6op3fff'
+    actual = doc_scanner.get_x_code_position(in_text)
     compare_expected_and_actual(in_text, expected, actual)
 
 
-##get_pattern_position
     expected = 4
     pattern = 'Tx'
-    in_text = 'aaaTx6op3aaa'
-    actual = doc_scanner.get_pattern_position(pattern, in_text)
+    in_text = 'aaaTx6op3fff'
+    actual = doc_scanner.get_pattern_position(pattern,in_text)
     compare_expected_and_actual(in_text, expected, actual)
 
+
     expected = -1
-    pattern = 'Tx'
-    in_text = 'aaax6op3aaa'
-    actual = doc_scanner.get_pattern_position(pattern, in_text)
+    pattern = 'gh'
+    in_text = 'aaaTx6op3fff'
+    actual = doc_scanner.get_pattern_position(pattern,in_text)
     compare_expected_and_actual(in_text, expected, actual)
+
 
 def compare_expected_and_actual(arg, expected, actual):
     if expected == actual:

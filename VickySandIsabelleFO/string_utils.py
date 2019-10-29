@@ -1,19 +1,23 @@
 #-------------------------------------------------------------------------------
-# Name:        module1
-# Purpose:
+# Name:    string_utils.py
 #
-# Author:      Isabelle
+# Purpose:  Get initials function
 #
-# Created:     15-10-2019
-# Copyright:   (c) Isabelle 2019
-# Licence:     <your licence>
+# Created by Chengjiaqi Sun
+#
+# Dated:     15/10/2019
 #-------------------------------------------------------------------------------
 
 
+'''Using function split and append to get the initials,
+append function igore the number of names,three words or two words'''
+
 def get_initials(full_name):
 
-    x = []
+    l = []
     for i in full_name.split():
-        x.append(i[0])
-    result = '.' .join(x) + '.'
+        l.append(i[0])
+    result = '.'.join(l) +'.'
     return result
+
+
