@@ -1,26 +1,37 @@
-#-------------------------------------------------------------------------------
-# Name:        module1
-# Purpose:
+#----------------------------------------------------------------------------
+# Name:    feature_class_reporter.py
 #
-# Author:      Isabelle
+# Purpose: add suffix to feature class name
 #
-# Created:     25-10-2019
-# Copyright:   (c) Isabelle 2019
-# Licence:     <your licence>
+# Created by Chengjiaqi Sun
+#
+# Created: 25/10/2019
 #-------------------------------------------------------------------------------
 
-def get_feature_type_name(fc_name):
-   if fc_name.endswith('_ply'):
-    return('Polygon')
-   if fc_name.endswith('_PLY'):
-    return('Polygon')
-   if fc_name.endswith('_LIN'):
-    return('Line')
-   if fc_name.endswith('_lin'):
-    return('Polygon')
-   if fc_name.endswith('_PNT'):
-    return('Point')
-   if fc_name.endswith('_pnt'):
-    return('Point')
-   else:
-    return('Unknown')
+
+
+''' fc_name (for the feature class name)  '''
+
+'''return point, pointline, polygon or unknown'''
+
+
+def main():
+
+    def get_feature_type_from_name(fc_name):
+        fc= fc_name.split('_')
+
+        if fc[1].upper() == "PNT":
+            return "Point"
+        elif fc[1].upper() == "LIN":
+            return "Polyline"
+        elif fc[1].upper() == "PLY":
+            return "Polygon"
+        else:
+            return "Unkown"
+
+
+
+if __name__ == '__main__':
+    main()
+
+
